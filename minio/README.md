@@ -16,11 +16,11 @@ helm pull bitnami/minio  --untar
 sauera@sauera1MD6T minio-bitnami % cat values.yaml|grep minio-credentials
   existingSecret: "minio-credentials"
  
-helm template minio bitnami/minio --namespace minio -f values.yaml > minio-lb.yaml
+helm template minio bitnami/minio --namespace minio -f values.yaml > minio.yaml
 
 kubectl create -f namespace.yaml -n minio
 kubectl create -f minio-secret.yaml -n minio
-kubectl create -f minio-lb.yaml -n minio
+kubectl create -f minio.yaml -n minio
 
 kubectl get pods -n minio
 NAME                     READY   STATUS    RESTARTS   AGE
