@@ -1,0 +1,15 @@
+apiVersion: velero.io/v1
+kind: Backup
+metadata:
+  name: postgresql-pvc-backup
+  namespace: velero
+spec:
+  includedNamespaces:
+    - postgresql
+  includedResources:
+    - persistentvolumeclaims
+  labelSelector:
+    matchLabels:
+      name: data-postgresql-0
+  storageLocation: default
+  ttl: 720h0m0s
