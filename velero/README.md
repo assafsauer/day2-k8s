@@ -10,7 +10,7 @@ velero install \
   --backup-location-config region=minio,s3ForcePathStyle="true",s3Url=http://minio.minio.svc.cluster.local:9000 > velero-install.yaml
 
 kubectl create -f velero-crd.yaml
-kubectl create -f velero-install.yaml
+kubectl create -f velero-install.yaml -n velero
 
 sauera@sauera1MD6T minio % cat backup-postgress.yaml 
 apiVersion: velero.io/v1
