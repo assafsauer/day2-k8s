@@ -43,5 +43,12 @@ sauera@sauera1MD6T minio % mc ls myminio/velero/backups/postgresql-pvc-backup
 [2023-08-21 16:05:43 CEST] 3.3KiB STANDARD velero-backup.json
 sauera@sauera1MD6T minio % 
 
+DEBUG
+
+kubectl get backupstoragelocation -n velero -o yaml
+kubectl logs -l component=velero -n velero 
+
+kubectl get backupstoragelocation -n velero -o yaml
+velero describe backup postgresql-backup 
 
 ```
