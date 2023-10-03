@@ -37,8 +37,15 @@ Added `myminio` successfully.
 kubectl create -f create-bucket-job.yaml  (svc = minio.minio.svc.cluster.local:9000.   the first "minio" is based on the helm release name)
 
 validate 
-sauera@sauera1MD6T minio-bitnami % mc ls myminio
-[2023-09-06 08:05:06 CEST]     0B my-bucket/
+kubectl apply -f minio-client.yaml
+kubectl exec -it minio-client -n minio -it -- bash
+
+[root@minio-client /]# mc alias set myminio http://minio.minio.svc.cluster.local:9000 $MINIO_ROOT_USER $MINIO_ROOT_PASSWORD
+Added `myminio` successfully.
+[root@minio-client /]# mc ls myminio
+[2023-10-03 11:09:56 UTC]     0B loki/
+[2023-10-03 11:09:56 UTC]     0B velero/
+[root@minio-client /]# 
 
 
 ```
