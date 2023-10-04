@@ -40,6 +40,15 @@ kubectl create -f agent/production/operator/crds
 kubectl create -f loki-s3.yaml -n loki
 
 
+helm template promtail grafana/promtail \
+    --set "loki.serviceName=loki" \
+    --namespace=loki > promtail-manifests.yaml
+
+kubectl apply -f promtail-manifests.yaml
+
+
+OR:
+
 ## install promtail ##
   helm upgrade --install promtail grafana/promtail \
     --set "loki.serviceName=loki" \
