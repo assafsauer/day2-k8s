@@ -1,0 +1,7 @@
+apiVersion: velero.io/v1
+kind: Restore
+metadata:
+  name: spring-app-restore
+spec:
+  backupName: spring-app-backup
+

@@ -1,0 +1,11 @@
+apiVersion: velero.io/v1
+kind: Backup
+metadata:
+  name: spring-app-backup
+spec:
+  includedNamespaces:
+    - spring
+  labelSelector:
+    matchLabels:
+      app: spring
+

@@ -1,0 +1,11 @@
+apiVersion: velero.io/v1
+kind: Backup
+metadata:
+  name: postgresql-backup
+spec:
+  includedNamespaces:
+    - postgresql
+  labelSelector:
+    matchLabels:
+      app: postgresql
+

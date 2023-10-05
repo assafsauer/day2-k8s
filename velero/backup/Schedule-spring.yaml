@@ -1,0 +1,13 @@
+apiVersion: velero.io/v1
+kind: Schedule
+metadata:
+  name: spring-app-daily-backup
+spec:
+  schedule: "@daily"
+  template:
+    includedNamespaces:
+      - spring
+    labelSelector:
+      matchLabels:
+        app: spring
+
